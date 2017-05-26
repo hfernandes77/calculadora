@@ -63,7 +63,7 @@ class Calculadora extends React.Component {
 			// Máximo de quinze números (tamanho do Display)
 			if (reg[this.state.registroCorrente].length == 15) return;
 			// Só pode conter uma vírgula (separador decimal)
-			if ((i == ',') && (reg[this.state.registroCorrente].indexOf(i) !== -1)) return;
+			if ((i == ',') && (reg[this.state.registroCorrente].indexOf(i) != -1)) return;
 			// Concatena
 			reg[this.state.registroCorrente] = reg[this.state.registroCorrente] + i;
 		} else { // É o primeiro número do registro ou já tem operador unário no registro
@@ -276,12 +276,6 @@ class Calculadora extends React.Component {
 				</table>
 			</div>
 			
-			<ul>
-				<li>Registro Corrente: {this.state.registroCorrente}</li>
-				<li>{this.state.registros[0]} {this.state.operador[0]}</li>
-				<li>{this.state.registros[1]} {this.state.operador[1]}</li>
-			</ul>
-			
 			</div>
 			
 		);
@@ -325,13 +319,14 @@ function converte(i) {
 
 function formatDisplay(reg) {
 	
+	var result = '';
 	var tamanho = reg.indexOf(',');
 	var m = Number(reg.replace(',','.'));
 	if (tamanho > 1) {
 		if (tamanho > 14) {
 			return 'overflow';
 		} else {
-			var result = (Math.round(m * Math.pow(10,14-tamanho))/Math.pow(10,14-tamanho)).toString();
+			result = (Math.round(m * Math.pow(10,14-tamanho))/Math.pow(10,14-tamanho)).toString();
 			result = result.replace('.',',');
 			return result;
 		}
@@ -339,7 +334,7 @@ function formatDisplay(reg) {
 		if (m.length > 15) {
 			return 'overflow';
 		} else {
-			var result = (Math.round(m * Math.pow(10,14-tamanho))/Math.pow(10,14-tamanho)).toString();
+			result = (Math.round(m * Math.pow(10,14-tamanho))/Math.pow(10,14-tamanho)).toString();
 			result = result.replace('.',',');
 			return result;
 		}
