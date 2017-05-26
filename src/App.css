@@ -1,0 +1,99 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.Calculadora {
+	width: 250px;
+	height: 300px;
+	border: 1px solid black;
+	display: inline-block;
+	background-color: #EAF1FA;
+}
+
+.Titulo {
+	width: 250px;
+	height: 30px;
+	background-color: #0000FF;
+	color: #FFFFFF;
+	display: table-cell; 
+	vertical-align: middle;
+}
+
+.Mostrador-Externo  {
+	width: 230px;
+	height: 40pxpx;
+	float: left;
+	padding: 10px;
+}
+
+.Mostrador-Interno  {
+	width: 228px;
+	height: 38px;
+	background-color: #FCFDFE;
+	color: #000000;
+	display: table-cell; 
+	vertical-align: middle;
+	border: 1px solid black;
+	font-size: 26px;
+	text-align: right;
+	padding-right: 5px; 
+}
+
+.Botao {
+	width: 40px;
+	height: 30px;
+	text-align: center;
+	border: 1px solid black;
+	display: table-cell; 
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.BotaoDuplo {
+	width: 90px;
+	height: 30px;
+	text-align: center;
+	border: 1px solid black;
+	display: table-cell; 
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.BotaoDuploVertical {
+	width: 40px;
+	height: 70px;
+	text-align: center;
+	border: 1px solid black;
+	display: table-cell; 
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.Teclado {
+	width: 238px;
+	display: inline-block;
+}
+
+
+
