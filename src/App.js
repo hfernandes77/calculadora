@@ -321,6 +321,9 @@ function formatDisplay(reg) {
 	
 	var result = '';
 	var tamanho = reg.indexOf(',');
+	
+	if (tamanho == reg.length-1) return reg;
+	
 	var m = Number(reg.replace(',','.'));
 	if (tamanho > 1) {
 		if (tamanho > 14) {
