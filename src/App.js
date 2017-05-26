@@ -56,8 +56,10 @@ class Calculadora extends React.Component {
 	entrarNumero(i) {
 		
 		const reg = this.state.registros.slice();
+		const oper = this.state.operador.slice();
 		
-		if ((reg[this.state.registroCorrente]) && (!this.state.operador[this.state.registroCorrente])) { // Não é o primeiro número do registro
+		// Não é o primeiro número do registro
+		if ((reg[this.state.registroCorrente]) && (!oper[this.state.registroCorrente])) { 
 			// Máximo de quinze números (tamanho do Display)
 			if (reg[this.state.registroCorrente].length == 15) return;
 			// Só pode conter uma vírgula (separador decimal)
@@ -65,8 +67,7 @@ class Calculadora extends React.Component {
 			// Concatena
 			reg[this.state.registroCorrente] = reg[this.state.registroCorrente] + i;
 		} else { // É o primeiro número do registro ou já tem operador unário no registro
-			// Desconsidera zeros à esquerda
-			if (i == 0) return;
+		
 			// Se a vírgula for digitada em primeiro lugar, adiciona o zero antes dela
 			if (i != ',') {
 				reg[this.state.registroCorrente] = i.toString();
@@ -74,7 +75,10 @@ class Calculadora extends React.Component {
 				reg[this.state.registroCorrente] = '0' + i.toString();
 			}
 		}
-		this.setState({registros: reg})
+		if (oper[this.state.registroCorrente] == '=') {
+			oper[this.state.registroCorrente] = null;
+		}
+		this.setState({registros: reg, operador: oper});
 	}
 	
 	entrarOperadorUnario(i) {
@@ -271,6 +275,12 @@ class Calculadora extends React.Component {
 					</tr>
 				</table>
 			</div>
+			
+			<ul>
+				<li>Registro Corrente: {this.state.registroCorrente}</li>
+				<li>{this.state.registros[0]} {this.state.operador[0]}</li>
+				<li>{this.state.registros[1]} {this.state.operador[1]}</li>
+			</ul>
 			
 			</div>
 			
